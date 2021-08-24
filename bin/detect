@@ -2,3 +2,9 @@
 # bin/detect <BUILD_DIR>
 
 set -eu -o pipefail
+
+if [[ "${AWS_ACCESS_KEY_ID}" == "" || "${AWS_SECRET_ACCESS_KEY}" == "" ]]
+then
+    echo "AWS credentials must exist in Heroku config to execute Coupa buildpack"
+    exit 1
+fi
