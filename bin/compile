@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bin/compile <BUILD_DIR> <CACHE_DIR> <ENV_DIR>
 
-set -eu -o pipefail
+# set -eu -o pipefail
 
 export AWS_ACCESS_KEY_ID=$(cat $3/AWS_TOOLING_ACCESS_KEY_ID)
 export AWS_SECRET_ACCESS_KEY=$(cat $3/AWS_TOOLING_ACCESS_KEY_ID)
@@ -25,7 +25,7 @@ unzip awscliv2.zip
 export PATH="$PATH:/app/.bin"
 
 aws s3 cp s3://yapta-artifacts/rapid7/linux__Insight_Agent.zip . --region=us-east-1
-unzip linux__Insight_Agent.zip
+unzip linux__Insight_Agent.zip 1>/dev/null
 chmod 0755 agent_installer.sh
 ./agent_installer.sh install --attributes "heroku,owner=cts-sre"
 
@@ -36,6 +36,5 @@ cd /
 rm -rf /tmp/rapid7
 
 rm awscliv2.zip
-
 
 exit 0
