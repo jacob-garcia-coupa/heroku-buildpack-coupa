@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # bin/detect <BUILD_DIR>
 
-set -eu -o pipefail
-
+set -o pipefail
 
 if [[ "$AWS_TOOLING_ACCESS_KEY_ID" == "" || "$AWS_TOOLING_SECRET_ACCESS_KEY" == "" ]]
 then
