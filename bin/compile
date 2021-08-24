@@ -22,6 +22,7 @@ mkdir -p /app/.awsinstall
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 ./aws/install -b /app/.bin -i /app/.awsinstall
+export PATH="$PATH:/app/.bin"
 
 aws s3 cp s3://yapta-artifacts/rapid7/linux__Insight_Agent.zip .
 unzip linux__Insight_Agent.zip
@@ -33,6 +34,5 @@ rm -rf /tmp/rapid7
 
 rm awscliv2.zip
 
-export PATH="$PATH:/app/.bin"
 
 exit 0
