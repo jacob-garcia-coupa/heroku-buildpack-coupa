@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 # bin/compile <BUILD_DIR> <CACHE_DIR> <ENV_DIR>
 
+set -eu -o pipefail
+
+AWS_ACCESS_KEY_ID=$(cat $ENV_DIR/AWS_TOOLING_ACCESS_KEY_ID)
+AWS_SECRET_ACCESS_KEY=$(cat $ENV_DIR/AWS_TOOLING_ACCESS_KEY_ID)
+
+if [[ "$AWS_SECRET_ACCESS_KEY" == "" || "$AWS_ACCESS_KEY_ID" == "" ]]
+then
+    echo "AWS credentials must exist in Heroku config to execute Coupa buildpack"
+    exit 1
+fi
+
 cd /tmp
 mkdir rapid7
 cd rapid7
