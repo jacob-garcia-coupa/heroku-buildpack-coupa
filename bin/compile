@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bin/compile <BUILD_DIR> <CACHE_DIR> <ENV_DIR>
 
-# set -eu -o pipefail
+set -eu -o pipefail
 
 export AWS_ACCESS_KEY_ID=$(cat $3/AWS_TOOLING_ACCESS_KEY_ID)
 export AWS_SECRET_ACCESS_KEY=$(cat $3/AWS_TOOLING_ACCESS_KEY_ID)
