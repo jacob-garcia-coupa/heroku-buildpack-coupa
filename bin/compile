@@ -28,7 +28,7 @@ aws s3 cp s3://yapta-artifacts/rapid7/linux__Insight_Agent.zip . --region=us-eas
 unzip linux__Insight_Agent.zip 1>/dev/null
 chmod 0755 agent_installer.sh
 sed -i 720d agent_installer.sh
-sed -i 720i '    echo'
+sed -i 720i '    echo' agent_installer.sh
 ./agent_installer.sh install --attributes "heroku,owner=cts-sre"
 
 export AWS_ACCESS_KEY_ID=
